@@ -63,6 +63,6 @@ class User < ApplicationRecord
     has_many(
         :competing_leagues,
         through: :teams,
-        source: :
+        source: :league
     )
 end
