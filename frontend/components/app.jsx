@@ -4,8 +4,8 @@ import { AuthRoute, ProtectedRoute } from '../util/auth_route_util'
 
 const App = () => (
     <>
-        <p>
-            It worked!
-        </p>
+        <p>Hooray</p>
     </>
 )
+
+export default App
