@@ -4,7 +4,7 @@ end
 json.set! :teams do
     @teams.each do |team|
         json.set! team.id do
-            json.extract! team, :owner_id, :set_wins, :set_losses, :game_wins
+            json.extract! team, :owner_id, :set_wins, :set_losses, :game_wins, :name, :league_id
         end
     end
 end
