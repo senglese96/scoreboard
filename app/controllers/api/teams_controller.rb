@@ -36,7 +36,7 @@ class Api::TeamsController < ApplicationController
 
     private
 
-    def game_params
+    def team_params
         params.require(:team).permit(:name, :league_id, :owner_id)
     end
 end
