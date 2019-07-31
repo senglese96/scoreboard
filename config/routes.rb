@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     resource :session, only: [:create, :destroy]
     resources :leagues, only: [:create, :show, :index, :update, :destroy] do
-      resources :teams, only: [:create, :destroy, :index, :update]
+      resources :teams, only: [:create, :index]
+      resources :games, only: [:create, :index]
     end
+    resources :teams, only: [:destroy, :update]
+    resources :games, only: [:destroy, :update]
   end
 end

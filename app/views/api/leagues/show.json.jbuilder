@@ -14,7 +14,14 @@ json.set! :users do
             json.partial! 'api/users/user', user: member
         end
     end
-    json.set @creator.id do
+    json.set! @creator.id do
         json.partial! 'api/users/user', user: @creator
+    end
+end
+json.set! :games do
+    @games.each do |game|
+        json.set! game.id do
+            json.extract! game, :winner_name, :loser_name, :loser_games, :winner_games, :id
+        end
     end
 end

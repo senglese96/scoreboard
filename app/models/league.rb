@@ -29,4 +29,10 @@ class League < ApplicationRecord
         foreign_key: :creator_id,
         class_name: 'User'
     )
+
+    has_many(
+        :games,
+        foreign_key: :league_id,
+        class_name: 'Game'
+    )
 end

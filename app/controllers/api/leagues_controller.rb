@@ -23,7 +23,7 @@ class Api::LeaguesController < ApplicationController
         @teams = @league.teams == nil ? [] : @league.teams 
         @creator = @league.creator == nil ? [] : @league.creator
         @members = @league.members == nil ? [] : @league.members
-
+        @games = @league.games == nil ? [] : @league.games
         if @league
             render 'api/leagues/show'
         else
@@ -37,3 +37,4 @@ class Api::LeaguesController < ApplicationController
         params.require(:league).permit(:name)
     end
 end
+params.require(:league).permit(:name)
