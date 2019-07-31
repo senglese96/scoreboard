@@ -23,6 +23,17 @@ class Api::GamesController < ApplicationController
         end
     end
 
+    def destroy
+        @game = Game.find_by(id: params[:id])
+        if @game
+            @game.destroy
+
+            redirect_to api_league_url(@game.league_id)
+        else
+            render json: 'Game Not Found', status: 404
+        end
+    end
+
     private
 
     def game_params
