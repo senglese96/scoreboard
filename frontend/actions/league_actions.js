@@ -1,8 +1,8 @@
 import * as APIUtil from '../util/league_api_util'
 
-export const RECEIVE_LEAGUE = 'RECIEVE_LEAGUE'
+export const RECEIVE_LEAGUE = 'RECEIVE_LEAGUE'
 export const REMOVE_LEAGUE = 'REMOVE_LEAGUE'
-export const RECIEVE_LEAGUES = 'RECIEVE_LEAGUES'
+export const RECEIVE_LEAGUES = 'RECEIVE_LEAGUES'
 
 const receiveLeague = data => ({
     type: RECEIVE_LEAGUE,
