@@ -5,7 +5,7 @@ import {
 } from '../actions/league_actions';
 import merge from 'lodash/merge'
 
-const leagueReducer = (state = {}, action) => {
+const leaguesReducer = (state = {}, action) => {
     Object.freeze(state)
     switch(action.type){
         case RECEIVE_LEAGUES:
@@ -22,4 +22,4 @@ const leagueReducer = (state = {}, action) => {
     }
 }
 
-export default leagueReducer;
+export default leaguesReducer;
