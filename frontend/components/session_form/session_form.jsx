@@ -6,13 +6,13 @@ class SessionForm extends React.Component {
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            email: ''
         };
         this.updateUsername = this.updateUsername.bind(this)
         this.updatePassword = this.updatePassword.bind(this)
+        this.updateEmail = this.updateEmail.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
-        this.demoUser = this.demoUser.bind(this)
-        this.clearInput = this.clearInput.bind(this)
     }
     updateUsername(e) {
         this.setState({ username: e.currentTarget.value })
@@ -22,13 +22,19 @@ class SessionForm extends React.Component {
         this.setState({ password: e.currentTarget.value })
     }
 
+    updateEmail(e){
+        this.setState({ email: e.currentTarget.value })
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+        debugger
         this.setState({
             username: '',
-            password: ''
+            password: '',
+            email: ''
         });
     }
 
@@ -57,12 +63,16 @@ class SessionForm extends React.Component {
         } else {
             errors = null
         }
-        let demo = null
+        let email = null
         let linkOther = null
         if (this.props.formType === 'login') {
             linkOther = <p className='other-form-link'>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
         } else {
             linkOther = <p className='other-form-link'>Already have an account? <Link to='/login'> Log In</Link></p>
+            email = <label>Email:
+                    <br />
+                    <input className='session-input' id='email' type="text" value={this.state.email} onChange={this.updateEmail} />
+                </label>
         }
 
         return (
@@ -76,13 +86,13 @@ class SessionForm extends React.Component {
                     <br />
                             <input className='session-input' id='username' type="text" value={this.state.username} onChange={this.updateUsername} />
                         </label>
+                        {email}
                         <label>Password:
                     <br />
                             <input className='session-input' id='password' type="password" value={this.state.password} onChange={this.updatePassword} />
                         </label>
                         <div className='session-buttons'>
                             <input type="submit" value={formText} />
-                            {demo}
                         </div>
                     </form>
                 </div>
