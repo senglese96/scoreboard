@@ -7,9 +7,10 @@ import SignupFormContainer from './session_form/signup_form_container'
 
 const App = () => (
     <>
-        <Route exact path='/' companent={Splash}/>
+        <Route exact path='/' component={Splash}/>
         <AuthRoute path='/login' component={LoginFormContainer} />
         <AuthRoute path='/signup' component={SignupFormContainer} />
+        <ProtectedRoute path='/main' />
     </>
 )
 
