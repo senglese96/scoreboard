@@ -13,12 +13,12 @@ const Splash = () => {
             </div>
             <div id='splash-buttons'>
                 <Link to='/login'>
-                    <div className='auth-button'>
+                    <div className='button auth-link'>
                         Log In
                     </div>
                 </Link>
                 <Link to='/signup'>
-                    <div className='auth-button'>
+                    <div className='button auth-link'>
                         Sign Up
                     </div>
                 </Link>

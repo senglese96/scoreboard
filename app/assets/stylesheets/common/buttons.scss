@@ -1,0 +1,14 @@
+
+.button{
+  background-color: green;
+  box-sizing: border-box;
+  border-radius: 30px;
+  text-align: center;
+  color: black;
+  transition-duration: 0.3s;
+}
+
+.button:hover{
+  background-color: darkgreen;
+  cursor: pointer;
+}

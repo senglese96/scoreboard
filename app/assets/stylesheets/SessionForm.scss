@@ -1,0 +1,46 @@
+.SessionForm {
+  width: 400px;
+  position: relative;
+  transform: translateX(-50%);
+  top: 200px;
+  left: 50%;
+
+  .session-errors{
+    color: red;
+    text-align: center;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    h3 {
+      font-size: 20px;
+      padding: 10px;
+    }
+
+    .session-form {
+      div {
+        padding: 7px;
+        margin-top: 10px;
+      }
+
+      .session-input {
+        width: 300px;
+        border-radius: 2px;
+        padding: 5px;
+      }
+    }
+    .session-buttons {
+      margin-top: 10px;
+
+      .submit {
+        height: 30px;
+        border: none;
+        width: 80px;
+      }
+    }
+  }
+}

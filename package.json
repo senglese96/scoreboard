@@ -2,23 +2,24 @@
   "name": "scoreboard",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.4.4",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.4.5",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/runtime": "^7.8.7",
     "babel-loader": "^8.0.5",
     "babel-polyfill": "^6.26.0",
     "lodash": "^4.17.11",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-redux": "^7.0.3",
-    "react-router-dom": "^5.0.0",
-    "redux": "^4.0.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "typed.js": "^2.0.10",
-    "webpack": "^4.30.0",
-    "webpack-cli": "^3.3.1"
+    "typed.js": "^2.0.11",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",
   "version": "1.0.0",
@@ -32,6 +33,7 @@
     "postinstall": "webpack",
     "start": "webpack --watch --mode=development"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Sam Inglese <senglese96@gmail.com>",
+  "license": "ISC",
+  "repository": "https://github.com/senglese96/scoreboard.git"
 }

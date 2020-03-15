@@ -9,24 +9,20 @@ class SessionForm extends React.Component {
             password: '',
             email: ''
         };
-        this.updateUsername = this.updateUsername.bind(this)
-        this.updatePassword = this.updatePassword.bind(this)
-        this.updateEmail = this.updateEmail.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
     }
-    updateUsername(e) {
+    updateUsername = (e) => {
         this.setState({ username: e.currentTarget.value })
     }
 
-    updatePassword(e) {
+    updatePassword = (e) => {
         this.setState({ password: e.currentTarget.value })
     }
 
-    updateEmail(e){
+    updateEmail= (e) => {
         this.setState({ email: e.currentTarget.value })
     }
 
-    handleSubmit(e) {
+    handleSubmit = (e) => {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
@@ -38,20 +34,7 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let formText = ''
-        let otherText = ''
-        let otherType = ''
-
-        if (this.props.formType === 'login') {
-            formText = 'Log In'
-            otherText = 'Sign Up'
-            otherType = 'signup'
-        }
-        else {
-            formText = 'Sign Up'
-            otherText = 'Log In'
-            otherType = 'login'
-        }
+        const { formType } = this.props
         let errors
         if (this.props.errors.length !== 0) {
             errors = <ul className='session-errors'>
@@ -62,40 +45,36 @@ class SessionForm extends React.Component {
         } else {
             errors = null
         }
-        let email = null
-        let linkOther = null
-        if (this.props.formType === 'login') {
-            linkOther = <p className='other-form-link'>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-        } else {
-            linkOther = <p className='other-form-link'>Already have an account? <Link to='/login'> Log In</Link></p>
-            email = <label>Email:
-                    <br />
-                    <input className='session-input' id='email' type="text" value={this.state.email} onChange={this.updateEmail} />
-                </label>
-        }
-
         return (
-            <>
-                {errors}
+            <div className="SessionForm">
                 <div className='form-container'>
-                    <h3>{formText}</h3>
-                    {linkOther}
+                    <h3>{formType === 'login' ? 'Log In' : 'Sign Up'}</h3>
+                    {
+                        formType === 'login'
+                            ? <p className='other-form-link'>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+                            : <p className='other-form-link'>Already have an account? <Link to='/login'> Log In</Link></p>
+                        
+                    }
                     <form className='session-form' onSubmit={this.handleSubmit}>
-                        <label>Username:
-                    <br />
-                            <input className='session-input' id='username' type="text" value={this.state.username} onChange={this.updateUsername} />
-                        </label>
-                        {email}
-                        <label>Password:
-                    <br />
-                            <input className='session-input' id='password' type="password" value={this.state.password} onChange={this.updatePassword} />
-                        </label>
+                        <div>Username </div>
+                        <input className='session-input' id='username' type="text" value={this.state.username} onChange={this.updateUsername} />
+                        {
+                            formType === 'login' 
+                            ? <>
+                                <div>Email</div>
+                                <input className='session-input' id='email' type="text" value={this.state.email} onChange={this.updateEmail} />
+                            </>
+                            : null
+                        }
+                        <div>Password</div>
+                        <input className='session-input' id='password' type="password" value={this.state.password} onChange={this.updatePassword} />
                         <div className='session-buttons'>
-                            <input type="submit" value={formText} />
+                            <input type="submit" className="button submit" value={"Submit"} />
                         </div>
                     </form>
                 </div>
-            </>
+                {errors}
+            </div>
         )
     }
 }
