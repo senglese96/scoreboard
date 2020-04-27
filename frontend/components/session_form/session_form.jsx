@@ -59,7 +59,7 @@ class SessionForm extends React.Component {
                         <div>Username </div>
                         <input className='session-input' id='username' type="text" value={this.state.username} onChange={this.updateUsername} />
                         {
-                            formType === 'login' 
+                            formType !== 'login' 
                             ? <>
                                 <div>Email</div>
                                 <input className='session-input' id='email' type="text" value={this.state.email} onChange={this.updateEmail} />

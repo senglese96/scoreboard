@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   root to: 'static_pages#root'
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:create, :show]
+    resources :users, only: [:create, :show] do
+      get 'competing/:id', on: :collection, to: 'users#competing'
+    end
     resource :session, only: [:create, :destroy]
     resources :leagues, only: [:create, :show, :index, :update, :destroy] do
       resources :teams, only: [:create, :index]

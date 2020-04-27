@@ -8,6 +8,16 @@ class Api::UsersController < ApplicationController
             render json: @user.errors.full_messages, status: 422
         end
     end
+
+    def competing      
+        @user = User.find_by(id: params[:id])
+        if @user
+            @leagues = @user.competing_leagues == nil ? [] : @user.competing_leagues
+            render 'api/leagues/index'
+        else
+            render json: 'Could not find that user', status: 404
+        end
+    end
     
     private
     def user_params
