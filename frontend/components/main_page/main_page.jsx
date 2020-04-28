@@ -6,8 +6,8 @@ class MainPage extends React.Component {
     const { currentUserId } = props
     super(props)
     
-    const stuff = fetchCompetingLeagues(currentUserId);
-    console.log(stuff)
+    const competingLeagues = fetchCompetingLeagues(currentUserId);
+    this.competing = Object.keys(competingLeagues.responseJSON);
   }
 
   render(){

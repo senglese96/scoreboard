@@ -14,12 +14,5 @@ export const receiveUserErrors = errors => ({
 })
 
 export const fetchCompetingLeagues = userId => {
-  return APIUtil.fetchCompetingLeagues(userId).responseJSON
-    // .then(
-    //   leagues => {
-    //     console.log(leagues)
-    //     return receiveCompetingLeagues(leagues)
-    //   }, 
-    //   errors => dispatch(receiveUserErrors(errors.responseJSON))
-    // )
+  return APIUtil.fetchCompetingLeagues(userId)
 }
