@@ -10,19 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_31_215521) do
+ActiveRecord::Schema.define(version: 2020_05_26_193017) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
-    t.string "winner_name", null: false
-    t.string "loser_name", null: false
     t.integer "league_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "loser_games"
-    t.integer "winner_games"
+    t.integer "winner_id", null: false
+    t.integer "loser_id", null: false
+    t.integer "set_id", null: false
+    t.integer "winner_score", default: 0
+    t.integer "loser_score", default: 0
     t.index ["league_id"], name: "index_games_on_league_id"
   end
 
@@ -33,6 +34,13 @@ ActiveRecord::Schema.define(version: 2019_07_31_215521) do
     t.datetime "updated_at", null: false
     t.index ["creator_id"], name: "index_leagues_on_creator_id"
     t.index ["name"], name: "index_leagues_on_name"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.integer "league_id", null: false
+    t.integer "best_of", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|

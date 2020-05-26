@@ -1,0 +1,1 @@
+json.extract! @team, :name, :owner_id, :league_id

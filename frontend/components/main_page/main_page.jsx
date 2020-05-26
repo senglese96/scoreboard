@@ -25,7 +25,7 @@ class MainPage extends React.Component {
   renderPage = () => {
     return(
       <div className="rendered-page">
-        
+
       </div>
     );
   }
@@ -41,8 +41,8 @@ class MainPage extends React.Component {
             : this.renderPage()
         }
       </div>
-    )
+    );
   }
 }
 
-export default MainPage
+export default MainPage;
