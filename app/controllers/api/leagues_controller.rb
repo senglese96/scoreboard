@@ -37,4 +37,3 @@ class Api::LeaguesController < ApplicationController
         params.require(:league).permit(:name)
     end
 end
-params.require(:league).permit(:name)
