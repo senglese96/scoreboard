@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_17_201053) do
+ActiveRecord::Schema.define(version: 2020_06_19_012320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,14 @@ ActiveRecord::Schema.define(version: 2020_06_17_201053) do
     t.integer "league_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "winner_id", null: false
-    t.integer "loser_id", null: false
     t.integer "set_id", null: false
-    t.integer "winner_score", default: 0
-    t.integer "loser_score", default: 0
+    t.integer "player1_score", default: 0
+    t.integer "player2_score", default: 0
+    t.bigint "player1_id"
+    t.bigint "player2_id"
     t.index ["league_id"], name: "index_games_on_league_id"
+    t.index ["player1_id"], name: "index_games_on_player1_id"
+    t.index ["player2_id"], name: "index_games_on_player2_id"
   end
 
   create_table "leagues", force: :cascade do |t|
@@ -62,6 +64,8 @@ ActiveRecord::Schema.define(version: 2020_06_17_201053) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "games", "users", column: "player1_id"
+  add_foreign_key "games", "users", column: "player2_id"
   add_foreign_key "participants", "leagues"
   add_foreign_key "participants", "users", column: "owner_id"
 end
